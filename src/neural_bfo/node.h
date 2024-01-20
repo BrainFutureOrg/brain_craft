@@ -1,0 +1,8 @@
+//
+// Created by kosenko on 20.01.24.
+//
+
+#ifndef BRAIN_CRAFT_SRC_NEURAL_BFO_NODE_H
+#define BRAIN_CRAFT_SRC_NEURAL_BFO_NODE_H
+
+#endif //BRAIN_CRAFT_SRC_NEURAL_BFO_NODE_H
