@@ -7,8 +7,8 @@
 #include <stdarg.h>
 #include <errno.h>
 #include "../colors.h"
-#include "../prj_error.h"
-#include "../loging/log.h"
+//#include "../prj_error.h"
+#include "../loging_bfo//log.h"
 
 #define TEST_print_formated_error(ftext_error) va_list args;                  \
                                                va_start(args, ftext_error);   \
