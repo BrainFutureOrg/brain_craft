@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <errno.h>
-#include "../colors.h"
+#include "../terminal_bfo/colors_bfo/colors.h"
 //#include "../prj_error.h"
 #include "../loging_bfo//log.h"
 
@@ -25,7 +25,6 @@
                                             unsuccess_test;                          \
                                                                                      \
                                             if (errno){                              \
-                                                print_error();                       \
                                                 errno = 0;                           \
                                             }                                        \
                                                                                      \
