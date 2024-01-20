@@ -4,5 +4,5 @@
 
 #ifndef BRAIN_CRAFT_SRC_TESTS_TESTS_H
 #define BRAIN_CRAFT_SRC_TESTS_TESTS_H
-
+void check_matrix_multiplication();
 #endif //BRAIN_CRAFT_SRC_TESTS_TESTS_H

@@ -12,4 +12,13 @@ add_executable(brain_craft
         src/libraries/math_bfo/random_bfo/statistical_random.c
         src/libraries/math_bfo/print/my_print.c
         src/tests/tests.c
-        src/neural_bfo/node.c)
+        src/neural_bfo/node.c
+        src/libraries/terminal_bfo/colors_bfo/bins.c
+        src/libraries/terminal_bfo/colors_bfo/colors.c
+        src/libraries/terminal_bfo/progress_bar/progres_bar.c
+        src/libraries/string_bfo/String_array_struct.c
+        src/libraries/string_bfo/String_struct.c
+        src/libraries/string_bfo/String_struct_formatting.c
+        src/libraries/arrays_bfo/Array_type.c)
+
+target_link_libraries(brain_craft m)
