@@ -19,6 +19,7 @@ add_executable(brain_craft
         src/libraries/string_bfo/String_array_struct.c
         src/libraries/string_bfo/String_struct.c
         src/libraries/string_bfo/String_struct_formatting.c
-        src/libraries/arrays_bfo/Array_type.c)
+        src/libraries/arrays_bfo/Array_type.c
+        src/neural_bfo/utility_nodes.c)
 
 target_link_libraries(brain_craft m)
