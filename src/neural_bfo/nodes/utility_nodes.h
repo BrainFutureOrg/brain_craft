@@ -4,7 +4,7 @@
 
 #ifndef BRAIN_CRAFT_SRC_NEURAL_BFO_UTILITY_NODES_H
 #define BRAIN_CRAFT_SRC_NEURAL_BFO_UTILITY_NODES_H
-#include "../libraries/arrays_bfo/Array_type.h"
+#include "../../libraries/arrays_bfo/Array_type.h"
 #include "node.h"
 #include "stdlib.h"
 struct branch_internal_data{
