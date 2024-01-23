@@ -14,7 +14,10 @@ typedef struct coordinates {
     int j;
 } coordinates;
 
+void matrix_multiplication_one_entity(matrix* first_matrix, matrix *second_matrix, matrix *result, int i, int j);
 matrix matrix_multiplication(matrix first_matrix, matrix second_matrix);
+matrix matrix_multiplication_parallel(matrix first_matrix, matrix second_matrix);
+
 
 double matrix_get_element(matrix matrx, int i, int j);
 

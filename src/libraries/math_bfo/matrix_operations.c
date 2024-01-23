@@ -9,6 +9,12 @@
 #include <stdarg.h>
 #include "print/my_print.h"
 
+void matrix_multiplication_one_entity(matrix* first_matrix, matrix *second_matrix, matrix *result, int i, int j){
+    result->table[i][j] = 0;
+    for (int i2 = 0; i2 < first_matrix->j; i2++) {
+        result->table[i][j] += first_matrix->table[i][i2] * second_matrix->table[i2][j];
+    }
+}
 
 matrix matrix_multiplication_simple(matrix first_matrix, matrix second_matrix) {
     matrix result = matrix_creation(first_matrix.i, second_matrix.j);
@@ -17,10 +23,7 @@ matrix matrix_multiplication_simple(matrix first_matrix, matrix second_matrix) {
 //#pragma omp for
         for (int i = 0; i < first_matrix.i; i++) {
             for (int j = 0; j < second_matrix.j; j++) {
-                result.table[i][j] = 0;
-                for (int i2 = 0; i2 < first_matrix.j; i2++) {
-                    result.table[i][j] += first_matrix.table[i][i2] * second_matrix.table[i2][j];
-                }
+                matrix_multiplication_one_entity(&first_matrix, &second_matrix, &result, i, j);
             }
         }
     }
