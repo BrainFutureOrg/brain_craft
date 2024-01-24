@@ -278,6 +278,15 @@ matrix matrix_multiplication_elements(matrix first_matrix, matrix second_matrix)
     return result;
 }
 
+void matrix_multiplication_elements_inplace(matrix first_matrix, matrix second_matrix)
+{
+    for (int i = 0; i < first_matrix.i; ++i) {
+        for (int j = 0; j < first_matrix.j; ++j) {
+            first_matrix.table[i][j] *= second_matrix.table[i][j];
+        }
+    }
+}
+
 matrix create_vector(int feach_num, int this) {
     matrix result = matrix_creation(feach_num, 1);
     for (int i = 0; i < feach_num; ++i) {
