@@ -27,7 +27,7 @@ void print_time_of_function_work(void f(void*), void* data_for_func)
 
 void matrix_multiplication_voidp(void* matrixes){
     matrix** mp = matrixes;
-    matrix_multiplication(*(mp[0]), *(mp[1]));
+    matrix_multiplication_parallel(*(mp[0]), *(mp[1]));
 }
 
 void matrix_multiplication_time_checking(matrix matrix1, matrix matrix2){
@@ -84,6 +84,93 @@ void check_matrix_multiplication() {
     matrix_multiplication_time_checking(checking, checking1);
     matrix_multiplication_time_checking(checking, dop);
 
+    matrix_free(checking);
+    matrix_free(checking1);
+    matrix_free(dop);
+}
+
+void check_matrix_multiplication_prints() {
+    double m[2][3] = {{1.1, 2.2, 5.1},
+                      {3.2, 4.1, 6.5}};
+    int size1 = sizeof(m) / sizeof(m[0]);
+    int size2 = sizeof(m[0]) / sizeof(m[0][0]);
+    double **matrix_pointer;
+    matrix_pointer = calloc(size1, sizeof(double *));
+    for (int i = 0; i < size1; ++i) {
+        matrix_pointer[i] = calloc(size2, sizeof(double));
+    }
+    for (int i = 0; i < size1; ++i) {
+        for (int j = 0; j < size2; ++j) {
+            matrix_pointer[i][j] = m[i][j];
+        }
+    }
+    matrix checking;
+    checking.table = matrix_pointer;
+    checking.i = size1;
+    checking.j = size2;
+    matrix checking1 = matrix_transposition(checking);
+//    matrix matr = matrix_multiplication_parallel(checking, checking1);
+    matrix matr = matrix_multiplication(checking, checking1);
+    matrix dop = matrix_copy(checking);
+    if (errno == 0) {
+        matrix_print(checking);
+        printf("*\n");
+        matrix_print(checking1);
+        printf("=\n");
+        matrix_print(matr);
+    } else {
+        printf("error");
+        matrix_free(checking);
+        return;
+    }
+    matrix_free(matr);
+    matrix_free(checking);
+    matrix_free(checking1);
+
+    printf("\n");
+    double m1[3][2] = {{1, 2},
+                       {3, 4},
+                       {5, 6}};
+    size1 = sizeof(m1) / sizeof(m1[0]);
+    size2 = sizeof(m1[0]) / sizeof(m1[0][0]);
+    matrix_pointer = calloc(size1, sizeof(double *));
+    for (int i = 0; i < size1; ++i) {
+        matrix_pointer[i] = calloc(size2, sizeof(double));
+    }
+    for (int i = 0; i < size1; ++i) {
+        for (int j = 0; j < size2; ++j) {
+            matrix_pointer[i][j] = m1[i][j];
+        }
+    }
+    checking.table = matrix_pointer;
+    checking.i = size1;
+    checking.j = size2;
+    checking1 = matrix_transposition(checking);
+//    matr = matrix_multiplication_parallel(checking, checking1);
+    matr = matrix_multiplication(checking, checking1);
+//
+//    matrix matr1 = matrix_multiplication_parallel(checking, dop);
+    matrix matr1 = matrix_multiplication(checking, dop);
+
+    if (errno == 0) {
+        matrix_print(checking);
+        printf("*\n");
+        matrix_print(checking1);
+        printf("=\n");
+        matrix_print(matr);
+
+        printf("\n");
+        matrix_print(checking);
+        printf("*\n");
+        matrix_print(dop);
+        printf("=\n");
+        matrix_print(matr1);
+    } else {
+        printf("error");
+        matrix_free(checking);
+        return;
+    }
+    matrix_free(matr);
     matrix_free(checking);
     matrix_free(checking1);
     matrix_free(dop);
