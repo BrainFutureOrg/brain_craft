@@ -24,6 +24,8 @@ add_executable(brain_craft
         src/neural_bfo/nodes/fully_connected_nodes.c
         "src/libraries/math_bfo/matrix_operations_parallel.c"
         src/garbage_collector_bfo/self_free.c
-        src/neural_bfo/nodes/communication_structures.c)
+        src/neural_bfo/nodes/communication_structures.c
+        src/neural_bfo/optimizers/optimizer.c
+        src/neural_bfo/regularizers/regularizer.c)
 
 target_link_libraries(brain_craft m)
