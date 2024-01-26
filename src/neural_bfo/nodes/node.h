@@ -12,9 +12,9 @@ typedef struct node{
 }node;
 
 //base structure of all back propagation nodes
-typedef struct{
+typedef struct back_prop_node{
     node* forward_prop_node;
-    void *(*back_prop)(node *, void *);
+    void *(*back_prop)(struct back_prop_node *, void *);
     void *back_prop_data;
 }back_prop_node;
 
