@@ -7,6 +7,7 @@
 #include "../../libraries/arrays_bfo/Array_type.h"
 #include "node.h"
 #include "stdlib.h"
+#include "communication_structures.h"
 
 //internal data for branch_node
 struct branch_internal_data{
@@ -19,5 +20,11 @@ node* create_branch_node(array_voidp* node_arr);
 
 //frees branch_node (but not children array)
 void free_branch_node(node* branch_node);
+
+struct order_node_data{
+    unsigned char order_number;
+    void* data;
+    node* next;
+};
 
 #endif //BRAIN_CRAFT_SRC_NEURAL_BFO_UTILITY_NODES_H
