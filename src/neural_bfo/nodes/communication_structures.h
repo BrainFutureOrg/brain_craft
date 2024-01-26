@@ -11,4 +11,8 @@
 //frees self_free_simple_small with matrix * as ptr_to_free
 void free_if_unused_simple_small_matrix(self_free_simple_small* to_free);
 
+struct order_enforcement{
+    unsigned char order_number;
+    void* data;
+};
 #endif //BRAIN_CRAFT_SRC_NEURAL_BFO_NODES_COMMUNICATION_STRUCTURES_H
