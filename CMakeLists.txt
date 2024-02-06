@@ -29,6 +29,7 @@ add_executable(brain_craft
         src/neural_bfo/regularizers/regularizer.c
         src/neural_bfo/nodes/input_nodes.c
         src/neural_bfo/nodes/output_nodes.c
-        src/neural_bfo/nodes/loss_nodes.c)
+        src/neural_bfo/nodes/loss_nodes.c
+        src/neural_bfo/nodes/regularization_nodes.c)
 
 target_link_libraries(brain_craft m)
